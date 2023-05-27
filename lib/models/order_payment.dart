@@ -1,0 +1,1 @@
+enum OrderPaymentType { cash, online }
