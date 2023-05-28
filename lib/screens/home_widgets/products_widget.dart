@@ -16,22 +16,26 @@ class _ProductsWidgetState extends State<ProductsWidget> {
 
   Widget buildDesktopView() {
     return Padding(
-      padding: const EdgeInsets.all(AppConstants.screenPadding),
+      padding: AppConstants.screenPadding,
       child: Column(
         children: [
           Row(
             children: [
               Text(
                 'All Products',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               const Spacer(),
               ElevatedButton.icon(
-                style: const ButtonStyle(
-                  padding: MaterialStatePropertyAll(
-                    EdgeInsets.all(AppConstants.screenPadding / 1.5),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll<Color>(
+                    Theme.of(context).primaryColor,
+                  ),
+                  foregroundColor: MaterialStatePropertyAll<Color>(
+                    Theme.of(context).colorScheme.onPrimary,
+                  ),
+                  padding: const MaterialStatePropertyAll(
+                    EdgeInsets.all(AppConstants.screenPaddingValue / 1.5),
                   ),
                 ),
                 icon: const Icon(Icons.add),
@@ -40,14 +44,14 @@ class _ProductsWidgetState extends State<ProductsWidget> {
               ),
             ],
           ),
-          const SizedBox(height: AppConstants.screenPadding),
+          const SizedBox(height: AppConstants.screenPaddingValue),
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 300,
-                childAspectRatio: 2 / 2,
+                childAspectRatio: 1,
                 crossAxisSpacing: 20,
-                mainAxisSpacing: 50,
+                mainAxisSpacing: 20,
                 mainAxisExtent: 250,
               ),
               itemCount: _products.length,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:lootlo_app_admin_dash/models/product.dart';
+import 'package:lootlo_app_admin_dash/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class ProductTileWidget extends StatefulWidget {
@@ -23,27 +24,64 @@ class _ProductTileWidgetState extends State<ProductTileWidget> {
   }
 
   Widget buildDesktopView(BuildContext context) {
-    final PageController _pageController = PageController();
+    final PageController pageController = PageController();
     return GridTile(
-      child: SizedBox(
+      footer: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppConstants.screenPaddingValue / 1.5,
+        ),
+        decoration: const BoxDecoration(
+          color: Colors.black54,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              widget.product.title,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Colors.white,
+                  ),
+            ),
+            Text(
+              'Rs ${widget.product.price}',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+            ),
+            Text(
+              widget.product.description,
+              maxLines: 2,
+              softWrap: true,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Colors.white,
+                  ),
+            ),
+          ],
+        ),
+      ),
+      child: Container(
         height: 400,
+        decoration:
+            BoxDecoration(color: Theme.of(context).colorScheme.onPrimary),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: PageView.builder(
                 itemCount: widget.product.imageUrls.length,
-                controller: _pageController,
+                controller: pageController,
                 itemBuilder: (context, index) => SizedBox(
                   height: 250,
                   child: ImageWithHoverEffect(
                     imageUrl: widget.product.imageUrls[index],
-                    onNext: () => _pageController.animateToPage(
+                    onNext: () => pageController.animateToPage(
                       ++currentImageIndex,
                       duration: const Duration(milliseconds: 200),
                       curve: Curves.easeIn,
                     ),
-                    onPrevious: () => _pageController.animateToPage(
+                    onPrevious: () => pageController.animateToPage(
                       --currentImageIndex,
                       duration: const Duration(milliseconds: 200),
                       curve: Curves.easeIn,
@@ -53,18 +91,6 @@ class _ProductTileWidgetState extends State<ProductTileWidget> {
               ),
             ),
             const SizedBox(height: 20),
-            Text(widget.product.title),
-            Text(
-              'Rs ${widget.product.price}',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-            Text(widget.product.description,
-                maxLines: 2,
-                softWrap: true,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.bodySmall),
           ],
         ),
       ),
@@ -93,32 +119,36 @@ class ImageWithHoverEffect extends HookWidget {
       onExit: (_) => isHovered.value = false,
       child: Stack(
         children: [
-          Image.network(
-            imageUrl,
-            fit: BoxFit.cover,
-            width: 300,
-            height: 200,
+          Hero(
+            tag: imageUrl,
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+              width: 300,
+              height: 200,
+            ),
           ),
           if (isHovered.value)
             Positioned(
               left: 5,
               top: 0,
               bottom: 0,
-              child: buildIconButton(Icons.arrow_back, onPrevious),
+              child: buildIconButton(context, Icons.arrow_back, onPrevious),
             ),
           if (isHovered.value)
             Positioned(
               right: 5,
               top: 0,
               bottom: 0,
-              child: buildIconButton(Icons.arrow_forward, onNext),
+              child: buildIconButton(context, Icons.arrow_forward, onNext),
             ),
         ],
       ),
     );
   }
 
-  Widget buildIconButton(IconData icon, VoidCallback onPressed) {
+  Widget buildIconButton(
+      BuildContext context, IconData icon, VoidCallback onPressed) {
     return InkWell(
       onTap: onPressed,
       child: Container(
@@ -129,7 +159,10 @@ class ImageWithHoverEffect extends HookWidget {
             width: 2.0,
           ),
         ),
-        child: Icon(icon),
+        child: Icon(
+          icon,
+          color: Theme.of(context).primaryColor,
+        ),
       ),
     );
   }

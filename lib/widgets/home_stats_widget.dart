@@ -52,9 +52,9 @@ class _HomeStatsWidgetState extends State<HomeStatsWidget>
     var textTheme = Theme.of(context).textTheme;
     return Container(
       margin: EdgeInsets.only(
-        right: widget.isLast ? 0 : AppConstants.screenPadding,
+        right: widget.isLast ? 0 : AppConstants.screenPaddingValue,
       ),
-      padding: const EdgeInsets.all(AppConstants.screenPadding),
+      padding: const EdgeInsets.all(AppConstants.screenPaddingValue),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppConstants.borderRadius),
         gradient: LinearGradient(
@@ -71,14 +71,14 @@ class _HomeStatsWidgetState extends State<HomeStatsWidget>
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(widget.icon, size: 40),
-          const SizedBox(height: AppConstants.screenPadding / 2),
+          const SizedBox(height: AppConstants.screenPaddingValue / 2),
           FittedBox(
             child: Text(
               widget.title,
               style: textTheme.bodyLarge?.copyWith(color: color),
             ),
           ),
-          const SizedBox(height: AppConstants.screenPadding / 2),
+          const SizedBox(height: AppConstants.screenPaddingValue / 2),
           TweenAnimationBuilder(
             curve: Curves.easeInOut,
             tween: IntTween(begin: 1, end: widget.quantity),

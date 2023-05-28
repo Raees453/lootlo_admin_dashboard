@@ -52,9 +52,9 @@ class ProfileButton extends StatelessWidget {
               ? theme.primaryColor
               : theme.iconTheme.color,
         ),
-        const SizedBox(width: AppConstants.screenPadding / 2),
+        const SizedBox(width: AppConstants.screenPaddingValue / 2),
         Text(title),
-        const SizedBox(width: AppConstants.screenPadding),
+        const SizedBox(width: AppConstants.screenPaddingValue),
       ],
     );
   }

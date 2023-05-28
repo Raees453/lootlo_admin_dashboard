@@ -31,7 +31,7 @@ class AppBarBuilder extends StatelessWidget {
       height: 120,
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.screenPadding * 3,
+        horizontal: AppConstants.screenPaddingValue * 3,
       ),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
@@ -63,12 +63,12 @@ class AppBarBuilder extends StatelessWidget {
           ),
           const Spacer(),
           const ChangeLightDarkModeButton(),
-          const SizedBox(width: AppConstants.screenPadding),
+          const SizedBox(width: AppConstants.screenPaddingValue),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.notifications, size: 25),
           ),
-          const SizedBox(width: AppConstants.screenPadding),
+          const SizedBox(width: AppConstants.screenPaddingValue),
           const ProfileButton(),
         ],
       ),

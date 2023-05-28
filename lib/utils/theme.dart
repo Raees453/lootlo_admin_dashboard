@@ -6,6 +6,7 @@ ThemeData lightTheme() {
   const textColor = Colors.black87;
 
   const primaryColor = Color.fromRGBO(72, 157, 154, 1);
+  const scaffoldBackgroundColor = Color.fromRGBO(249, 250, 251, 1);
 
   return ThemeData(
     useMaterial3: true,
@@ -14,7 +15,7 @@ ThemeData lightTheme() {
     fontFamily: GoogleFonts.poppins().fontFamily,
     primaryColor: primaryColor,
     primaryColorLight: primaryColor,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: scaffoldBackgroundColor,
     iconTheme: const IconThemeData(color: Colors.white),
     dataTableTheme: const DataTableThemeData(
       dividerThickness: 2.0,

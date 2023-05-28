@@ -39,7 +39,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
       ),
       drawer: buildDrawer(),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppConstants.screenPadding / 2),
+        padding: const EdgeInsets.all(AppConstants.screenPaddingValue / 2),
         child: widgets[_currentWidget],
       ),
     );
@@ -67,8 +67,8 @@ class _HomeMobileViewState extends State<HomeMobileView> {
       }),
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: AppConstants.screenPadding / 5,
-          horizontal: AppConstants.screenPadding / 2,
+          vertical: AppConstants.screenPaddingValue / 5,
+          horizontal: AppConstants.screenPaddingValue / 2,
         ),
         child: Column(
           children: [
@@ -78,7 +78,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
                     color: Theme.of(context).primaryColor,
                   ),
             ),
-            const SizedBox(height: AppConstants.screenPadding / 2),
+            const SizedBox(height: AppConstants.screenPaddingValue / 2),
           ],
         ),
       ),

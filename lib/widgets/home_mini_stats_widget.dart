@@ -22,10 +22,10 @@ class HomeMiniStatsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(right: isLast ? 0 : AppConstants.screenPadding),
+        margin: EdgeInsets.only(right: isLast ? 0 : AppConstants.screenPaddingValue),
         padding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.screenPadding / 2,
-          vertical: AppConstants.screenPadding / 5,
+          horizontal: AppConstants.screenPaddingValue / 2,
+          vertical: AppConstants.screenPaddingValue / 5,
         ),
         decoration: BoxDecoration(
             // color: Theme.of(context).primaryColor,
@@ -42,16 +42,16 @@ class HomeMiniStatsWidget extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            const SizedBox(width: AppConstants.screenPadding / 2),
+            const SizedBox(width: AppConstants.screenPaddingValue / 2),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(width: AppConstants.screenPadding),
+                const SizedBox(width: AppConstants.screenPaddingValue),
                 Text(
                   title,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(),
                 ),
-                const SizedBox(width: AppConstants.screenPadding / 2),
+                const SizedBox(width: AppConstants.screenPaddingValue / 2),
                 Text(
                   value.toString(),
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(

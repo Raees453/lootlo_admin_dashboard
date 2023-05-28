@@ -27,7 +27,7 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
     'account': AccountWidget(),
   };
 
-  String _currentWidget = 'home';
+  String _currentWidget = 'products';
 
   Widget buildSideBar(BuildContext context) {
     int index = 0;

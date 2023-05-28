@@ -32,7 +32,7 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   Widget buildListVIew() {
     final list = homeMajorStatsList;
-    const sizedBox = SizedBox(height: AppConstants.screenPadding / 3);
+    const sizedBox = SizedBox(height: AppConstants.screenPaddingValue / 3);
 
     return ListView.separated(
       shrinkWrap: true,
@@ -53,9 +53,9 @@ class _HomeWidgetState extends State<HomeWidget> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         buildListVIew(),
-        const SizedBox(height: AppConstants.screenPadding),
+        const SizedBox(height: AppConstants.screenPaddingValue),
         Text('Recent Orders', style: Theme.of(context).textTheme.bodyLarge),
-        const SizedBox(height: AppConstants.screenPadding / 2),
+        const SizedBox(height: AppConstants.screenPaddingValue / 2),
         HomeRecentOrdersTableWidget(),
       ],
     );
@@ -69,21 +69,18 @@ class HomeWidgetDesktopViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.screenPadding * 3,
-        vertical: AppConstants.screenPadding,
-      ),
+      padding: AppConstants.screenPadding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text('Dashboard Overview', style: textTheme.headlineMedium),
-          const SizedBox(height: AppConstants.screenPadding),
+          const SizedBox(height: AppConstants.screenPaddingValue),
           _buildMainStatsRow(),
-          const SizedBox(height: AppConstants.screenPadding),
+          const SizedBox(height: AppConstants.screenPaddingValue),
           _buildMiniStatsRow(),
-          const SizedBox(height: AppConstants.screenPadding * 2),
+          const SizedBox(height: AppConstants.screenPaddingValue * 2),
           Text('Recent Orders', style: textTheme.headlineMedium),
-          const SizedBox(height: AppConstants.screenPadding / 2),
+          const SizedBox(height: AppConstants.screenPaddingValue / 2),
           HomeRecentOrdersTableWidget(),
         ],
       ),

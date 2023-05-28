@@ -9,7 +9,12 @@ class AppConstants {
 
   static const double borderRadius = 8.0;
 
-  static const double screenPadding = 24.0;
+  static const double screenPaddingValue = 24.0;
 
   static const int rowsPerPageInTable = 15;
+
+  static const EdgeInsets screenPadding = EdgeInsets.symmetric(
+    horizontal: AppConstants.screenPaddingValue * 3,
+    vertical: AppConstants.screenPaddingValue,
+  );
 }
