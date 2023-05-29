@@ -15,5 +15,4 @@ class ThemeProvider with ChangeNotifier {
 
   ThemeMode revertTheme(Brightness brightness) =>
       brightness == Brightness.light ? ThemeMode.dark : ThemeMode.light;
-
 }

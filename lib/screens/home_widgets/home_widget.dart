@@ -3,7 +3,7 @@ import 'package:lootlo_app_admin_dash/utils/constants.dart';
 import 'package:lootlo_app_admin_dash/widgets/home_mini_stats_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../../hard_coded_data.dart';
+import '../../utils/hard_coded_data.dart';
 import '../../widgets/home_recent_orders_table_widget.dart';
 import '../../widgets/home_stats_widget.dart';
 

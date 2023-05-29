@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lootlo_app_admin_dash/hard_coded_data.dart';
 import 'package:lootlo_app_admin_dash/utils/constants.dart';
+import 'package:lootlo_app_admin_dash/utils/hard_coded_data.dart';
 import 'package:lootlo_app_admin_dash/widgets/product_tile_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 

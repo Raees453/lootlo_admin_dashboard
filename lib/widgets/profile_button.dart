@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lootlo_app_admin_dash/screens/login_screen.dart';
 import 'package:lootlo_app_admin_dash/utils/constants.dart';
 
 class ProfileButton extends StatelessWidget {
@@ -33,9 +34,12 @@ class ProfileButton extends StatelessWidget {
             onTap: () {},
           ),
           PopupMenuItem(
-            child: _buildRow(context, Icons.logout, 'Logout'),
-            onTap: () {},
-          ),
+              child: _buildRow(context, Icons.logout, 'Logout'),
+              onTap: () {
+                final navigator = Navigator.of(context);
+                navigator.pop();
+                navigator.pushReplacementNamed(LoginScreen.routeName);
+              }),
         ];
       },
     );

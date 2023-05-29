@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lootlo_app_admin_dash/utils/constants.dart';
 
-import '../../screens/home_widgets/account_widget.dart';
-import '../../screens/home_widgets/active_orders.dart';
-import '../../screens/home_widgets/customers_widget.dart';
-import '../../screens/home_widgets/home_widget.dart';
-import '../../screens/home_widgets/orders_widget.dart';
-import '../../screens/home_widgets/payments_widget.dart';
-import '../../screens/home_widgets/products_widget.dart';
+import '/screens/home_widgets/account_widget.dart';
+import '/screens/home_widgets/active_orders.dart';
+import '/screens/home_widgets/customers_widget.dart';
+import '/screens/home_widgets/home_widget.dart';
+import '/screens/home_widgets/orders_widget.dart';
+import '/screens/home_widgets/payments_widget.dart';
+import '/screens/home_widgets/products_widget.dart';
 
 class HomeMobileView extends StatefulWidget {
   const HomeMobileView({Key? key}) : super(key: key);

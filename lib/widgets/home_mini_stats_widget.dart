@@ -22,7 +22,8 @@ class HomeMiniStatsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(right: isLast ? 0 : AppConstants.screenPaddingValue),
+        margin: EdgeInsets.only(
+            right: isLast ? 0 : AppConstants.screenPaddingValue),
         padding: const EdgeInsets.symmetric(
           horizontal: AppConstants.screenPaddingValue / 2,
           vertical: AppConstants.screenPaddingValue / 5,
@@ -61,32 +62,6 @@ class HomeMiniStatsWidget extends StatelessWidget {
               ],
             )
           ],
-        ),
-      ),
-    );
-
-    return Expanded(
-      child: ListTile(
-        tileColor: Theme.of(context).primaryColor,
-        leading: CircleAvatar(
-          backgroundColor: iconBgColor,
-          child: Icon(
-            icon,
-            color: Colors.white,
-          ),
-        ),
-        title: Text(
-          title,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.5),
-              ),
-        ),
-        subtitle: Text(
-          value.toString(),
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onPrimary,
-              ),
         ),
       ),
     );

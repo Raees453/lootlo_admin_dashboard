@@ -25,9 +25,7 @@ class _ChangeLightDarkModeButtonState extends State<ChangeLightDarkModeButton>
   void didChangeDependencies() {
     _themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     _themeMode =
-        _themeProvider.themeFromBrightness(Theme
-            .of(context)
-            .brightness);
+        _themeProvider.themeFromBrightness(Theme.of(context).brightness);
     super.didChangeDependencies();
   }
 
@@ -35,9 +33,7 @@ class _ChangeLightDarkModeButtonState extends State<ChangeLightDarkModeButton>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _themeMode = _themeProvider.revertTheme(Theme
-            .of(context)
-            .brightness);
+        _themeMode = _themeProvider.revertTheme(Theme.of(context).brightness);
         _themeProvider.themeMode = _themeMode;
       },
       child: SizedBox(

@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../widgets/views/home/orders_desktop_view.dart';
+
 class OrdersWidget extends StatelessWidget {
   const OrdersWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-      desktop: (_) => buildDesktopView(),
+      desktop: (_) => OrdersDesktopView(),
       mobile: (_) => buildMobileView(),
     );
   }

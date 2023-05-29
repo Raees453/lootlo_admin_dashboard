@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lootlo_app_admin_dash/hard_coded_data.dart';
-import 'package:lootlo_app_admin_dash/models/order_payment.dart';
-import 'package:lootlo_app_admin_dash/models/order_status.dart';
 import 'package:lootlo_app_admin_dash/utils/constants.dart';
+import 'package:lootlo_app_admin_dash/utils/hard_coded_data.dart';
 
-import '../models/formatter.dart';
 import '../models/table_sources/recent_orders_table_source.dart';
 
 class HomeRecentOrdersTableWidget extends StatelessWidget {

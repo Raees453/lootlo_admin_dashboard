@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lootlo_app_admin_dash/utils/constants.dart';
-import 'package:lootlo_app_admin_dash/views/home/home_mobile_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../views/home/home_desktop_view.dart';
+import '../widgets/views/home/home_desktop_view.dart';
+import '../widgets/views/home/home_mobile_view.dart';
 
 class HomeScreen extends StatefulWidget {
+  static String routeName = '/home';
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -30,5 +31,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-

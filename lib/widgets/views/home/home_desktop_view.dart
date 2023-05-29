@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:lootlo_app_admin_dash/utils/constants.dart';
 
-import '../../screens/home_widgets/account_widget.dart';
-import '../../screens/home_widgets/active_orders.dart';
-import '../../screens/home_widgets/customers_widget.dart';
-import '../../screens/home_widgets/home_widget.dart';
-import '../../screens/home_widgets/orders_widget.dart';
-import '../../screens/home_widgets/payments_widget.dart';
-import '../../screens/home_widgets/products_widget.dart';
-import '../../widgets/app_bar.dart';
+import '/screens/home_widgets/account_widget.dart';
+import '/screens/home_widgets/active_orders.dart';
+import '/screens/home_widgets/customers_widget.dart';
+import '/screens/home_widgets/home_widget.dart';
+import '/screens/home_widgets/orders_widget.dart';
+import '/screens/home_widgets/payments_widget.dart';
+import '/screens/home_widgets/products_widget.dart';
+import '/widgets/app_bar.dart';
 
 class HomeDesktopView extends StatefulWidget {
   const HomeDesktopView({super.key});
@@ -27,12 +28,14 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
     'account': AccountWidget(),
   };
 
-  String _currentWidget = 'products';
+  String _currentWidget = 'orders';
 
   Widget buildSideBar(BuildContext context) {
     int index = 0;
+    final theme = Theme.of(context);
+
     return Container(
-      decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+      decoration: BoxDecoration(color: theme.primaryColor),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -41,18 +44,40 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
             alignment: Alignment.bottomCenter,
             decoration: BoxDecoration(
                 border: Border.all(
-                  color: Theme.of(context).colorScheme.primary,
-                )),
+              color: theme.colorScheme.primary,
+            )),
             child: Text(
               'Lootlo Admin\nDashboard',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: theme.textTheme.headlineMedium,
             ),
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: AppConstants.screenPaddingValue),
           ...widgets.entries
               .map((e) => buildSideBarButton(e.key, index++))
               .toList(),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppConstants.screenPaddingValue / 2,
+            ),
+            child: ElevatedButton.icon(
+              onPressed: () {},
+              label: const Text('Logout'),
+              icon: const Icon(Icons.logout),
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll<Color>(
+                  theme.scaffoldBackgroundColor,
+                ),
+                foregroundColor: MaterialStatePropertyAll<Color>(
+                  theme.brightness == Brightness.light
+                      ? theme.primaryColor
+                      : theme.colorScheme.onPrimary,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: AppConstants.screenPaddingValue),
         ],
       ),
     );

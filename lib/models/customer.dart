@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Customer {
   final String id;
   final String name;
@@ -12,5 +14,20 @@ class Customer {
     required this.phone,
     required this.imageUrl,
   });
-  
+
+  DataRow toDataRow() {
+    return DataRow(
+      cells: [
+        DataCell(
+          CircleAvatar(
+            backgroundImage: AssetImage(imageUrl),
+          ),
+        ),
+        DataCell(Text(id)),
+        DataCell(Text(name)),
+        DataCell(Text(phone)),
+        DataCell(Text(email)),
+      ],
+    );
+  }
 }

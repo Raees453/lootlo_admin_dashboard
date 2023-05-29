@@ -13,6 +13,8 @@ class AppConstants {
 
   static const int rowsPerPageInTable = 15;
 
+  static const double widgetHeight = 50;
+
   static const EdgeInsets screenPadding = EdgeInsets.symmetric(
     horizontal: AppConstants.screenPaddingValue * 3,
     vertical: AppConstants.screenPaddingValue,

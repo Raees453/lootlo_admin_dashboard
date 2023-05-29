@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lootlo_app_admin_dash/models/table_sources/customers_table_source.dart';
 import 'package:lootlo_app_admin_dash/utils/constants.dart';
 import 'package:lootlo_app_admin_dash/widgets/paginated_table_widget.dart';
 
-import '../../models/customer.dart';
-import '../../widgets/custome_text_field.dart';
+import '../../../models/customer.dart';
+import '../../custom/custome_text_field.dart';
 
 class CustomersDesktopView extends StatefulWidget {
   const CustomersDesktopView({Key? key, required this.customers})
@@ -38,7 +37,7 @@ class _CustomersDesktopViewState extends State<CustomersDesktopView> {
               borderRadius: BorderRadius.circular(AppConstants.borderRadius),
               color: Colors.white,
             ),
-            child: CustomeTextField(
+            child: CustomTextField(
               controller: _controller,
               hintText: 'Search by name/email/phone',
             ),
@@ -46,7 +45,8 @@ class _CustomersDesktopViewState extends State<CustomersDesktopView> {
           const SizedBox(height: 20),
           PaginatedTableWidget(
             cols: const ['Image', 'Id', 'Name', 'Email', 'Phone'],
-            source: CustomersTableSource(customers: widget.customers),
+            rows: widget.customers,
+            getRowFunction: (int index) => widget.customers[index].toDataRow(),
           ),
           const Padding(
             padding: EdgeInsets.all(24.0),

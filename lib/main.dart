@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:lootlo_app_admin_dash/providers/theme_provider.dart';
-import 'package:lootlo_app_admin_dash/screens/home_screen.dart';
+import 'package:lootlo_app_admin_dash/screens/login_screen.dart';
+import 'package:lootlo_app_admin_dash/utils/routes.dart';
 import 'package:lootlo_app_admin_dash/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -33,11 +34,14 @@ class LootLoAdminDashboard extends StatelessWidget {
         builder: (context, _) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Lootlo Admin',
-          // themeMode: ThemeMode.dark,
-          themeMode: Provider.of<ThemeProvider>(context).themeMode,
           theme: lightTheme(),
           darkTheme: darkTheme(),
-          home: const HomeScreen(),
+          themeMode: Provider.of<ThemeProvider>(context).themeMode,
+          // themeMode: ThemeMode.dark,
+          initialRoute: Routes.initialRoute,
+          routes: Routes.routes,
+          onUnknownRoute: Routes.onUnknownRoute,
+          home: const LoginScreen(),
         ),
       ),
     );

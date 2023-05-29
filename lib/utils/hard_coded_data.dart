@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lootlo_app_admin_dash/models/customer.dart';
 import 'package:lootlo_app_admin_dash/models/home_stats_widget_model.dart';
+import 'package:lootlo_app_admin_dash/models/order.dart';
 import 'package:lootlo_app_admin_dash/models/order_payment.dart';
 import 'package:lootlo_app_admin_dash/models/order_status.dart';
 import 'package:lootlo_app_admin_dash/models/product.dart';
@@ -86,3 +87,23 @@ final homeMajorStatsList = [
     isLast: true,
   ),
 ];
+
+final List<Order> allOrders = List.generate(
+  30,
+  (index) => Order(
+    id: '$index}',
+    invoiceNo: index + 1000,
+    orderTime: DateTime.utc(2023, index % 12),
+    customerName: 'Ali Wajdan $index',
+    paymentType:
+        index % 2 == 0 ? OrderPaymentType.cash : OrderPaymentType.online,
+    amount: index * 30,
+    orderStatus: index % 2 == 0
+        ? OrderStatus.Pending
+        : index % 3 == 0
+            ? OrderStatus.Delivered
+            : index % 5 == 0
+                ? OrderStatus.Cancel
+                : OrderStatus.Processing,
+  ),
+).toList();

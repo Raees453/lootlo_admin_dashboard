@@ -6,11 +6,13 @@ class PaginatedTableWidget extends StatelessWidget {
   const PaginatedTableWidget({
     Key? key,
     required this.cols,
-    required this.source,
+    required this.rows,
+    required this.getRowFunction,
   }) : super(key: key);
 
   final List<String> cols;
-  final DataTableSource source;
+  final List<dynamic> rows;
+  final DataRow? Function(int) getRowFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,29 @@ class PaginatedTableWidget extends StatelessWidget {
                 ),
               ))
           .toList(),
-      source: source,
+      source: PaginatedTableSource(data: rows, getRowFunction: getRowFunction),
     );
   }
+}
+
+class PaginatedTableSource extends DataTableSource {
+  final List<dynamic> data;
+  final DataRow? Function(int) getRowFunction;
+
+  PaginatedTableSource({
+    required this.data,
+    required this.getRowFunction,
+  });
+
+  @override
+  DataRow? getRow(int index) => getRowFunction(index);
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => data.length;
+
+  @override
+  int get selectedRowCount => 0;
 }
