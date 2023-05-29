@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../models/formatter.dart';
 import '../utils/constants.dart';
 
-class HomeMiniStatsWidget extends StatelessWidget {
+class HomeMiniStatsWidget extends StatefulWidget {
   const HomeMiniStatsWidget({
     Key? key,
     required this.title,
@@ -19,27 +20,47 @@ class HomeMiniStatsWidget extends StatelessWidget {
   final bool isLast;
 
   @override
+  State<HomeMiniStatsWidget> createState() => _HomeMiniStatsWidgetState();
+}
+
+class _HomeMiniStatsWidgetState extends State<HomeMiniStatsWidget>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _animationController;
+
+  @override
+  void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    );
+
+    _animationController.forward(from: 0);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
         margin: EdgeInsets.only(
-            right: isLast ? 0 : AppConstants.screenPaddingValue),
+            right: widget.isLast ? 0 : AppConstants.screenPaddingValue),
         padding: const EdgeInsets.symmetric(
           horizontal: AppConstants.screenPaddingValue / 2,
           vertical: AppConstants.screenPaddingValue / 5,
         ),
         decoration: BoxDecoration(
-            // color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-            border: Border.all(
-              color: Colors.grey.withOpacity(0.8),
-            )),
+          // color: Theme.of(context).primaryColor,
+          borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+          border: Border.all(
+            color: Colors.grey.withOpacity(0.8),
+          ),
+        ),
         child: Row(
           children: [
             CircleAvatar(
-              backgroundColor: iconBgColor.withOpacity(0.8),
+              backgroundColor: widget.iconBgColor.withOpacity(0.8),
               child: Icon(
-                icon,
+                widget.icon,
                 color: Colors.white,
               ),
             ),
@@ -49,15 +70,22 @@ class HomeMiniStatsWidget extends StatelessWidget {
               children: [
                 const SizedBox(width: AppConstants.screenPaddingValue),
                 Text(
-                  title,
+                  widget.title,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(),
                 ),
                 const SizedBox(width: AppConstants.screenPaddingValue / 2),
-                Text(
-                  value.toString(),
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                TweenAnimationBuilder(
+                  curve: Curves.easeInOut,
+                  tween: IntTween(begin: 1, end: widget.value),
+                  duration: AppConstants.homeTextAnimationDuration,
+                  builder: (BuildContext context, int value, _) {
+                    return Text(
+                      Formatter.formatAmount(value),
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
+                    );
+                  },
                 ),
               ],
             )
@@ -65,5 +93,11 @@ class HomeMiniStatsWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 }

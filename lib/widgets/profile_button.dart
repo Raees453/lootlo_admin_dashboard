@@ -34,12 +34,13 @@ class ProfileButton extends StatelessWidget {
             onTap: () {},
           ),
           PopupMenuItem(
-              child: _buildRow(context, Icons.logout, 'Logout'),
-              onTap: () {
-                final navigator = Navigator.of(context);
-                navigator.pop();
-                navigator.pushReplacementNamed(LoginScreen.routeName);
-              }),
+            child: _buildRow(context, Icons.logout, 'Logout'),
+            onTap: () {
+              final navigator = Navigator.of(context);
+              navigator.pop();
+              navigator.pushReplacementNamed(LoginScreen.routeName);
+            },
+          ),
         ];
       },
     );

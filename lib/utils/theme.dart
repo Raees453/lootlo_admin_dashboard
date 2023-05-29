@@ -103,7 +103,7 @@ ElevatedButtonThemeData _getElevatedButtonThemeData(
         Size.fromHeight(AppConstants.widgetHeight),
       ),
       backgroundColor: MaterialStatePropertyAll<Color>(primaryColor),
-      foregroundColor: MaterialStatePropertyAll<Color>(foregroundColor),
+      foregroundColor: MaterialStatePropertyAll<Color>(Colors.white),
     ),
   );
 }

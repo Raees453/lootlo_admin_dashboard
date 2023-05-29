@@ -41,7 +41,7 @@ class LootLoAdminDashboard extends StatelessWidget {
           initialRoute: Routes.initialRoute,
           routes: Routes.routes,
           onUnknownRoute: Routes.onUnknownRoute,
-          home: const LoginScreen(),
+          home: LoginScreen(),
         ),
       ),
     );

@@ -9,6 +9,7 @@ import '/screens/home_widgets/orders_widget.dart';
 import '/screens/home_widgets/payments_widget.dart';
 import '/screens/home_widgets/products_widget.dart';
 import '/widgets/app_bar.dart';
+import '../../../screens/login_screen.dart';
 
 class HomeDesktopView extends StatefulWidget {
   const HomeDesktopView({super.key});
@@ -28,7 +29,7 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
     'account': AccountWidget(),
   };
 
-  String _currentWidget = 'orders';
+  String _currentWidget = 'home';
 
   Widget buildSideBar(BuildContext context) {
     int index = 0;
@@ -62,7 +63,8 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
               horizontal: AppConstants.screenPaddingValue / 2,
             ),
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context)
+                  .pushReplacementNamed(LoginScreen.routeName),
               label: const Text('Logout'),
               icon: const Icon(Icons.logout),
               style: ButtonStyle(

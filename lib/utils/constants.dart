@@ -15,6 +15,11 @@ class AppConstants {
 
   static const double widgetHeight = 50;
 
+  static const int autoCloseDurationSeconds = 5;
+
+  static const Duration homeTextAnimationDuration =
+      Duration(milliseconds: 2000);
+
   static const EdgeInsets screenPadding = EdgeInsets.symmetric(
     horizontal: AppConstants.screenPaddingValue * 3,
     vertical: AppConstants.screenPaddingValue,

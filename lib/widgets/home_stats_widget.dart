@@ -82,7 +82,7 @@ class _HomeStatsWidgetState extends State<HomeStatsWidget>
           TweenAnimationBuilder(
             curve: Curves.easeInOut,
             tween: IntTween(begin: 1, end: widget.quantity),
-            duration: const Duration(milliseconds: 2500),
+            duration: AppConstants.homeTextAnimationDuration,
             builder: (BuildContext context, int value, _) {
               return Text(
                 Formatter.formatAmount(value),

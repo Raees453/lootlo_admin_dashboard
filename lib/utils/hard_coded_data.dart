@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lootlo_app_admin_dash/models/customer.dart';
+import 'package:lootlo_app_admin_dash/models/home_mini_stats_widget_model.dart';
 import 'package:lootlo_app_admin_dash/models/home_stats_widget_model.dart';
 import 'package:lootlo_app_admin_dash/models/order.dart';
 import 'package:lootlo_app_admin_dash/models/order_payment.dart';
@@ -81,10 +82,37 @@ final homeMajorStatsList = [
   ),
   HomeStatsWidgetModel(
     title: 'All Time Earnings',
-    icon: Icons.money,
+    icon: Icons.credit_card,
     quantity: 1450000,
     backgroundColor: Colors.green,
     isLast: true,
+  ),
+];
+
+final homeMiniStatsList = [
+  HomeMiniStatsWidgetModel(
+    title: 'Total Orders',
+    icon: Icons.shopping_cart_outlined,
+    value: 8,
+    backgroundColor: Colors.orangeAccent,
+  ),
+  HomeMiniStatsWidgetModel(
+    title: 'Total Orders',
+    icon: Icons.restart_alt,
+    value: 9,
+    backgroundColor: Colors.blueAccent,
+  ),
+  HomeMiniStatsWidgetModel(
+    title: 'Total Orders',
+    icon: Icons.fire_truck_outlined,
+    value: 10,
+    backgroundColor: Colors.teal,
+  ),
+  HomeMiniStatsWidgetModel(
+    title: 'Total Orders',
+    icon: Icons.done,
+    value: 18,
+    backgroundColor: Colors.green,
   ),
 ];
 

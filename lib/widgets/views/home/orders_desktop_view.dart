@@ -22,7 +22,6 @@ class OrdersDesktopView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(height: AppConstants.screenPaddingValue),
           Text(
             'Orders',
             style: Theme.of(context).textTheme.headlineMedium,

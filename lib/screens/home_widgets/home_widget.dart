@@ -107,49 +107,16 @@ class HomeWidgetDesktopViewBuilder extends StatelessWidget {
   }
 
   Widget _buildMiniStatsRow() {
-    final List<Color> colors = [
-      Colors.orangeAccent,
-      Colors.blueAccent,
-      Colors.teal,
-      Colors.green,
-    ];
-
-    final icons = [
-      Icons.shopping_cart_outlined,
-      Icons.restart_alt,
-      Icons.fire_truck_outlined,
-      Icons.done,
-    ];
+    final list = homeMiniStatsList;
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        HomeMiniStatsWidget(
-          title: 'Total Order',
-          icon: icons[0],
-          value: 0,
-          iconBgColor: colors[0],
-        ),
-        HomeMiniStatsWidget(
-          title: 'Total Order',
-          icon: icons[1],
-          value: 0,
-          iconBgColor: colors[1],
-        ),
-        HomeMiniStatsWidget(
-          title: 'Total Order',
-          icon: icons[2],
-          value: 0,
-          iconBgColor: colors[2],
-        ),
-        HomeMiniStatsWidget(
-          title: 'Total Order',
-          icon: icons[3],
-          value: 0,
-          iconBgColor: colors[3],
-          isLast: true,
-        ),
-      ],
-    );
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: list
+            .map((e) => HomeMiniStatsWidget(
+                title: e.title,
+                icon: e.icon,
+                value: e.value,
+                iconBgColor: e.backgroundColor))
+            .toList());
   }
 }

@@ -39,6 +39,7 @@ dependencies:
   visibility_detector: ^0.4.0+2
   responsive_table: ^0.2.0+2
   flutter_svg: ^2.0.6
+  toastification: ^0.0.3
 
 
   intl: ^0.18.1
