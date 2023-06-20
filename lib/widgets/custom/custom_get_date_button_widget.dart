@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:lootlo_app_admin_dash/models/formatter.dart';
 import 'package:lootlo_app_admin_dash/utils/constants.dart';
@@ -29,7 +27,7 @@ class _CustomGetDataButtonWidgetState extends State<CustomGetDataButtonWidget> {
       child: Row(
         children: [
           Text(
-            selectedDate.isNull
+            selectedDate == null
                 ? 'dd/mm/yyyy'
                 : Formatter.formatDate(selectedDate!),
           ),

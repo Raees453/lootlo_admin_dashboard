@@ -1,10 +1,21 @@
-# lootlo_app_admin_dash
+# Lootlo Admin Dashboard Web App
 
-A new Flutter project.
+A Flutter Web Application which serves as an Admin Panel for an ecommerce Shop Owner. The Project is
+been a part of our FYP Project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project [Lootlo Admin Dashboard] is a Flutter based Web App which serves
+as an admin panel for an ecommerce platform.
+
+Admin can manage the store and at the same time can word on shop's stats based on its performance 
+with the help of the dashboard.
+
+App's backend has been developed using Python and Django, the store in Vue JS, and the admin
+panel in Flutter so it can be cross platform and responsive at the same time.
+
+This Project is been a Part of our FYP which is to build an ecommerce ecosystem for the shop owner
+and its customers while sticking with the basic requirements.
 
 A few resources to get you started if this is your first Flutter project:
 

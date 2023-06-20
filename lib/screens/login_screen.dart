@@ -25,33 +25,41 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget buildDesktopView(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final height = size.height;
     return Card(
-      elevation: 3,
-      margin: const EdgeInsets.symmetric(
-        horizontal: AppConstants.screenPaddingValue * 13,
-        vertical: AppConstants.screenPaddingValue * 8,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(
-            child: _buildImageWidget(
-              BoxFit.fill,
-              const BorderRadius.only(
-                topLeft: Radius.circular(AppConstants.borderRadius),
-                bottomLeft: Radius.circular(AppConstants.borderRadius),
-              ),
-            ),
+      elevation: 5,
+      child: Center(
+        child: Container(
+          constraints: BoxConstraints(
+            maxHeight: height * 0.7,
+            minHeight: height * 0.4,
+            maxWidth: width * 0.7,
+            minWidth: width * 0.4,
           ),
-          Expanded(
-            child: _buildColumn(
-              context,
-              const EdgeInsets.symmetric(
-                horizontal: AppConstants.screenPaddingValue * 2,
+          child: Row(
+            children: [
+              Expanded(
+                child: _buildImageWidget(
+                  BoxFit.fill,
+                  const BorderRadius.only(
+                    topLeft: Radius.circular(AppConstants.borderRadius),
+                    bottomLeft: Radius.circular(AppConstants.borderRadius),
+                  ),
+                ),
               ),
-            ),
+              Expanded(
+                child: _buildColumn(
+                  context,
+                  const EdgeInsets.symmetric(
+                    horizontal: AppConstants.screenPaddingValue * 2,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -79,6 +87,7 @@ class LoginScreen extends StatelessWidget {
   Widget _buildImageWidget(BoxFit boxFit, BorderRadiusGeometry borderRadius) {
     return SizedBox(
       width: double.infinity,
+      height: double.infinity,
       child: ClipRRect(
         borderRadius: borderRadius,
         child: Image.asset('assets/images/login_dash.jpeg', fit: boxFit),
